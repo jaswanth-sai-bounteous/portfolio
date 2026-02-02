@@ -1,0 +1,182 @@
+/* ---------------- Global Variables ---------------- */
+:root {
+    --color-header-bg: rgb(143, 113, 76);
+    --color-header-link: black;
+    --color-header-hover: rgb(100, 65, 33);
+    --color-header-active: azure;
+
+    --color-hero-bg: blanchedalmond;
+    --color-hero-pic-bg: bisque;
+    --color-hero-subtitle: #555;
+}
+
+/* ---------------- Global Styles ---------------- */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------- Header Section ---------------- */
+header {
+    height: 70px;
+    background-color: var(--color-header-bg);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+header ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--color-header-link);
+}
+
+header img {
+    width: 25px;
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px 20px;
+    border-radius: 30px;
+}
+
+.icon {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .icon:hover {
+        background-color: var(--color-header-hover);
+    }
+
+    .icon:active {
+        background-color: var(--color-header-active);
+    }
+
+    .icon img {
+        width: 30px;
+        height: auto;
+    }
+
+    .header__content {
+        display: none;
+    }
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero__inner {
+    background-color: var(--color-hero-bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.hero__profile-pic {
+    background-color: var(--color-hero-pic-bg);
+    width: 400px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hero__profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero__about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 350px;
+}
+
+.hero__title {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hero__subtitle {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-hero-subtitle);
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* ---------------- Projects Section ---------------- */
+.projects {
+    max-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 768px) {
+    .hero__inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        gap: 3.5rem;
+    }
+
+    .hero__profile-pic {
+        max-width: 280px;
+    }
+
+    .hero__about {
+        max-width: 100%;
+    }
+
+    .hero__title {
+        font-size: 1.8rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.1rem;
+    }
+
+    .projects__container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .projects__box {
+        flex: 1 1 100%;
+        min-width: 0;
+        height: 150px;
+    }
+}
