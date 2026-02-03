@@ -1,14 +1,37 @@
-/* ---------------- Global Variables ---------------- */
 :root {
     --color-header-bg: rgb(143, 113, 76);
     --color-header-link: black;
     --color-header-hover: rgb(100, 65, 33);
     --color-header-active: azure;
-
     --color-hero-bg: blanchedalmond;
     --color-hero-pic-bg: bisque;
     --color-hero-subtitle: #555;
+
+    --color-body-bg: #ffffff;
+    --color-text: #000000;
+    --color-card-bg: blanchedalmond;
 }
+body {
+    background-color: var(--color-body-bg);
+    color: var(--color-text);
+}
+
+/* Dark mode overrides */
+body.dark {
+    --color-header-bg: #1f1f1f;
+    --color-header-link: #ffffff;
+    --color-header-hover: #bbbbbb;
+    --color-header-active: #00bfff;
+    --color-hero-bg: #2a2a2a;
+    --color-hero-pic-bg: #3a3a3a;
+    --color-hero-subtitle: #ccc;
+    --color-body-bg: #121212;
+    --color-text: #f1f1f1;
+    --color-card-bg: #1f1f1f;
+}
+
+
+
 
 /* ---------------- Global Styles ---------------- */
 * {
@@ -32,6 +55,15 @@ header {
     position:sticky;
     top:0;
     z-index: 10;
+}
+.theme-btn {
+    background: none;
+    border: 2px solid var(--color-header-link);
+    color: var(--color-header-link);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 /* header ul {
@@ -83,7 +115,8 @@ header img {
 
 /* ---------------- Hero Section ---------------- */
 .hero__inner {
-    background-color: var(--color-hero-bg);
+    /* background-color: var(--color-hero-bg); */
+     background: linear-gradient(to right, #e6e5e4, var(--color-hero-bg));
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -135,8 +168,8 @@ header img {
     
     
     padding: 4rem 2rem;
-    background-color: rgb(171, 141, 95)
-    
+     background: linear-gradient(to right, var(--color-hero-bg),rgb(171, 141, 95));
+   
 }
 .projects__title{
     text-align: center;
@@ -146,7 +179,7 @@ header img {
 .projects__container{
     
     display: flex;
-    flex-wrap: nowrap;
+    
     flex-direction: row;
      gap:10px;
     justify-content: space-around;
@@ -155,6 +188,7 @@ header img {
 }
 .projects__box {
     width:300px;
+    
   background: blanchedalmond;
   border-radius: 12px;
   padding: 20px;
@@ -168,9 +202,17 @@ header img {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
+.projects__box,
+.testimonial {
+    background-color: var(--color-card-bg);
+}
+
 .projects__box img {
-  width: 200px;
-  margin-bottom: 15px;
+
+ width: 100%;
+  height: 250px;        
+  object-fit: cover;   
+  border-radius: 10px;
 }
 
 .projects__box h3 {
@@ -196,6 +238,88 @@ header img {
 }
 
 .projects__box a:hover {
+  background: #0056b3;
+}
+.testimonials {
+  padding: 4rem 2rem;
+  background-color: #f8f1e5;
+  text-align: center;
+}
+
+.testimonials__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.testimonial__quote {
+  font-style: italic;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.testimonial__quote::before {
+  content: "“";
+  font-size: 3rem;
+  position: absolute;
+  left: 0;
+  top: -10px;
+  color: #8f714c;
+}
+
+.testimonial__author {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.contact {
+     background: linear-gradient(to right, #e6e5e4, var(--color-hero-bg));
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact__form {
+    
+  max-width: 400px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact__form input,
+.contact__form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.contact__form button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.contact__form button:hover {
   background: #0056b3;
 }
 
